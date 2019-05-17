@@ -1,13 +1,8 @@
 import React from "react"
 import { Link } from "gatsby"
 
-const headerStyle = {
-  width: "100%",
-  background: "yellow",
-}
-
 const header = () => (
-  <header style={headerStyle}>
+  <header>
     <h1>manuhdez</h1>
     <nav>
       <ul>
