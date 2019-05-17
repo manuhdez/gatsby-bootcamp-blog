@@ -1,11 +1,14 @@
 import React from "react"
-import { Link } from "gatsby"
+
+import Header from "../components/header"
+import Footer from "../components/footer"
 
 const contactPage = props => (
   <div>
+    <Header />
     <h1>Contact page</h1>
     <p>This is the contact page</p>
-    <Link to="/">go back</Link>
+    <Footer />
   </div>
 )
 

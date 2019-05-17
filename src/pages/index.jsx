@@ -1,16 +1,14 @@
 import React from "react"
-import { Link } from "gatsby"
+
+import Header from "../components/header"
+import Footer from "../components/footer"
 
 const indexPage = () => (
   <div>
+    <Header />
     <h1>Hello gatsby!</h1>
     <p>I'm manu hdez, a fullstack designer</p>
-    <Link to="/blog">blog</Link>
-    <br />
-    <Link to="/about">about</Link>
-    <br />
-    <Link to="/contact">contact</Link>
-    <br />
+    <Footer />
   </div>
 )
 

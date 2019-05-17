@@ -1,11 +1,14 @@
 import React from "react"
-import { Link } from "gatsby"
+
+import Header from "../components/header"
+import Footer from "../components/footer"
 
 const blogPage = props => (
   <div>
+    <Header />
     <h1>Blog page</h1>
     <p>This is the blog page</p>
-    <Link to="/">go back</Link>
+    <Footer />
   </div>
 )
 
