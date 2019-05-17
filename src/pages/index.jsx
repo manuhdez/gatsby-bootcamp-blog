@@ -1,14 +1,13 @@
 import React from "react"
 
-import Header from "../components/header"
-import Footer from "../components/footer"
+import Layout from "../components/layout"
 
 const indexPage = () => (
   <div>
-    <Header />
-    <h1>Hello gatsby!</h1>
-    <p>I'm manu hdez, a fullstack designer</p>
-    <Footer />
+    <Layout>
+      <h1>Hello gatsby!</h1>
+      <p>I'm manu hdez, a fullstack designer</p>
+    </Layout>
   </div>
 )
 
