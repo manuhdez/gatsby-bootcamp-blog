@@ -1,5 +1,5 @@
 import React from "react"
-import { graphql, useStaticQuery } from "gatsby"
+import { Link, graphql, useStaticQuery } from "gatsby"
 
 import Layout from "../components/layout/layout"
 
@@ -12,6 +12,9 @@ const blogPage = props => {
             frontmatter {
               title
               date
+            }
+            fields {
+              slug
             }
           }
         }
@@ -28,9 +31,13 @@ const blogPage = props => {
         <ol>
           {edges.map(postData => {
             const { title, date } = postData.node.frontmatter
+            const { slug } = postData.node.fields
+
             return (
               <li key={title + date}>
-                <h2>{title}</h2>
+                <h2>
+                  <Link to={`/blog/${slug}`}>{title}</Link>
+                </h2>
                 <p>{date}</p>
               </li>
             )
