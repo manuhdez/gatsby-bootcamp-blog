@@ -5,6 +5,8 @@ date: "16-05-2019"
 
 React is amazing!
 
+![Bike](./img/bike.jpg)
+
 ## Topics
 
 1. jsx
