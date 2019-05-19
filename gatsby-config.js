@@ -23,6 +23,7 @@ module.exports = {
       options: {
         plugins: [
           "gatsby-remark-relative-images",
+          "gatsby-remark-copy-linked-files",
           {
             resolve: "gatsby-remark-images",
             options: {
