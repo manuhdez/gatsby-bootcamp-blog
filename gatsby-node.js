@@ -1,16 +1,53 @@
 const path = require("path")
 
+// ********************************
 // Generate url slug from file node
-exports.onCreateNode = ({ node, actions }) => {
-  const { createNodeField } = actions
+// exports.onCreateNode = ({ node, actions }) => {
+//   const { createNodeField } = actions
 
-  if (node.internal.type === "MarkdownRemark") {
-    const slug = path.basename(node.fileAbsolutePath, ".md")
+//   if (node.internal.type === "MarkdownRemark") {
+//     const slug = path.basename(node.fileAbsolutePath, ".md")
 
-    createNodeField({ node, name: "slug", value: slug })
-  }
-}
+//     createNodeField({ node, name: "slug", value: slug })
+//   }
+// }
 
+// *******************************
+// Markdown version of createPages
+// exports.createPages = async ({ graphql, actions }) => {
+//   const { createPage } = actions
+//   // 1. get path to template
+//   const blogTemplate = path.resolve("./src/templates/blog.jsx")
+
+//   // 2. get md data
+//   const response = await graphql(`
+//     query {
+//       allMarkdownRemark {
+//         edges {
+//           node {
+//             fields {
+//               slug
+//             }
+//           }
+//         }
+//       }
+//     }
+//   `)
+
+//   // 3. create new pages
+//   response.data.allMarkdownRemark.edges.forEach(edge => {
+//     const { slug } = edge.node.fields
+
+//     createPage({
+//       component: blogTemplate,
+//       path: `/blog/${slug}`,
+//       context: { slug },
+//     })
+//   })
+// }
+
+// *************************
+// Contentful version
 exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions
   // 1. get path to template
@@ -19,12 +56,10 @@ exports.createPages = async ({ graphql, actions }) => {
   // 2. get md data
   const response = await graphql(`
     query {
-      allMarkdownRemark {
+      allContentfulBlogPost {
         edges {
           node {
-            fields {
-              slug
-            }
+            slug
           }
         }
       }
@@ -32,8 +67,8 @@ exports.createPages = async ({ graphql, actions }) => {
   `)
 
   // 3. create new pages
-  response.data.allMarkdownRemark.edges.forEach(edge => {
-    const { slug } = edge.node.fields
+  response.data.allContentfulBlogPost.edges.forEach(edge => {
+    const { slug } = edge.node
 
     createPage({
       component: blogTemplate,
