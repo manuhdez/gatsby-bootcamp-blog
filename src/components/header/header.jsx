@@ -34,6 +34,11 @@ const header = () => {
             </Link>
           </li>
           <li>
+            <Link className={scss.link} to="/projects">
+              Projects
+            </Link>
+          </li>
+          <li>
             <Link className={scss.link} to="/about">
               About
             </Link>

@@ -52,9 +52,10 @@ exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions
   // 1. get path to template
   const blogTemplate = path.resolve("./src/templates/blog.jsx")
+  const projectTemplate = path.resolve("./src/templates/project.jsx")
 
   // 2. get md data
-  const response = await graphql(`
+  const blogResponse = await graphql(`
     query {
       allContentfulBlogPost {
         edges {
@@ -66,13 +67,35 @@ exports.createPages = async ({ graphql, actions }) => {
     }
   `)
 
+  const projectResponse = await graphql(`
+    query {
+      allContentfulProject {
+        edges {
+          node {
+            slug
+          }
+        }
+      }
+    }
+  `)
+
   // 3. create new pages
-  response.data.allContentfulBlogPost.edges.forEach(edge => {
+  blogResponse.data.allContentfulBlogPost.edges.forEach(edge => {
     const { slug } = edge.node
 
     createPage({
       component: blogTemplate,
       path: `/blog/${slug}`,
+      context: { slug },
+    })
+  })
+
+  projectResponse.data.allContentfulProject.edges.forEach(edge => {
+    const { slug } = edge.node
+
+    createPage({
+      component: projectTemplate,
+      path: `/projects/${slug}`,
       context: { slug },
     })
   })
