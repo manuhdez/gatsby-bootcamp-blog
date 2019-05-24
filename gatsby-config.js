@@ -9,6 +9,7 @@ require("dotenv").config({ path: "./.env" })
 module.exports = {
   /* Your site config here */
   plugins: [
+    "gatsby-plugin-react-helmet",
     "gatsby-plugin-sass",
     {
       resolve: "gatsby-source-filesystem",

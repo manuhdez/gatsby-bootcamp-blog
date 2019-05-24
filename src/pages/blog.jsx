@@ -74,7 +74,7 @@ const blogPage = () => {
   const { edges } = postsData.allContentfulBlogPost
 
   return (
-    <Layout>
+    <Layout title="Blog">
       <h1>Blog posts</h1>
       <ol className={scss.posts}>
         {edges.map(postData => {

@@ -41,7 +41,7 @@ const project = props => {
   }
 
   return (
-    <Layout>
+    <Layout title={title}>
       <h1>{title}</h1>
       <p>From: {from}</p>
       <p>To: {to}</p>

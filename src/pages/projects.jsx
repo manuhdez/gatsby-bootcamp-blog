@@ -23,7 +23,7 @@ const projectsPage = () => {
   const { edges } = projectsData.allContentfulProject
 
   return (
-    <Layout>
+    <Layout title="My projects">
       <h1>Projects</h1>
       <ol className={scss.posts}>
         {edges.map(postData => {
